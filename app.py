@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
+import gzip
 
 #https://api.themoviedb.org/3/movie/1363?api_key=2607986bf31bbce91fe94fdbdf75cd23&language=en-US
 def fetch_poster(movie_id):
@@ -36,7 +37,7 @@ def recommend(movie):
 movies_dict = pickle.load(open('movies_dict.pkl','rb'))
 movies = pd.DataFrame(movies_dict)
 
-similarity = pickle.load(open('similarity.pkl','rb'))
+similarity = pickle.load(gzip.open('similarity.pkl.gz','rb'))
         
 st.title('Movie Recommender System')
 selected_movie = st.selectbox(
