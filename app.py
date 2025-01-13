@@ -48,7 +48,7 @@ selected_movie = st.selectbox(
 #creting recommend button functionality
 
 if st.button('Recommend'):
-    #st.write(selected_movie)
+    st.write('movies similar to the selected_movie:')
     recommendations,posters = recommend(selected_movie)
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
